@@ -26,4 +26,7 @@ response = openai.ChatCompletion.create(
     ]
 )
 assistantResponse = response['choices'][0]['message']['content']
-print("ChatGPT:", assistantResponse.strip("\n").strip())
+result = assistantResponse.strip("\n").strip()
+print("ChatGPT:", result)
+
+#
