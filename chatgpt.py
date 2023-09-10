@@ -8,14 +8,11 @@ load_dotenv(override=True)
 # Get API key from environment variable
 openai.api_key = os.getenv("CHATGPT_API_KEY")
 
-# Instantiate set of strings which will contain song and artist name
-songSet = set()
-
 # Gets user input for genre of songs
 genre = input("What genre of music do you want in your playlist?\n")
 
 # Prompt that goes into chat gpt
-prompt = "List of 10" + genre + "songs with the artist name. No note at the end. Dont number them"
+prompt = "List of 10" + genre + "songs with the artist name. No note at the end."
 
 
 # DOES NOT USE PREVIOUS MESSAGES AS CONTEXT (NO CONVERSATION)
@@ -26,7 +23,16 @@ response = openai.ChatCompletion.create(
     ]
 )
 assistantResponse = response['choices'][0]['message']['content']
-result = assistantResponse.strip("\n").strip()
-print("ChatGPT:", result)
+result = assistantResponse.strip(".")
+print("ChatGPT:\n" + result)
 
-#
+print("\n----------------------------------------\n")
+
+# Instantiate set of strings which will contain song and artist name
+songSet = result.split("\n")
+
+# Loop to get rid of numbers
+for x in range(len(songSet)):
+    songSet[x] = songSet[x].split('. ')[1]
+
+#print(songSet)
