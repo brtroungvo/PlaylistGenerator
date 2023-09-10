@@ -29,10 +29,10 @@ print("ChatGPT:\n" + result)
 print("\n----------------------------------------\n")
 
 # Instantiate set of strings which will contain song and artist name
-songSet = result.split("\n")
+songList = result.split("\n")
 
 # Loop to get rid of numbers
-for x in range(len(songSet)):
-    songSet[x] = songSet[x].split('. ')[1]
+for x in range(len(songList)):
+    songList[x] = songList[x].split('. ')[1]
 
-#print(songSet)
+#print(songList)
