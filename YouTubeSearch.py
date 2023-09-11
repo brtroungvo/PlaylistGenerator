@@ -2,7 +2,7 @@
 import os
 import googleapiclient.discovery
 from dotenv import load_dotenv
-#from chatgpt import songList
+from chatgpt import songList
 
 # Load YouTube apikey
 load_dotenv(override=True)
@@ -13,39 +13,29 @@ youtube = googleapiclient.discovery.build('youtube', 'v3', developerKey=apikey)
 
 
 # Stores results for YouTubeSet Searches
-youtubeLinks = []
+youtubeIds = []
 
-# Search Request
-
-'''
 youtubeList = songList
 for x in youtubeList:
     try:
         search_response = youtube.search().list(
             q = x,
             type = 'video',
-            part = 'snippet',
-            maxResults = 10
+            part = 'id',
+            maxResults = 1
         ).execute()
-        print ("\n----------------------------------------\n")
+        templist = []
+        for search_result in search_response.get('items'):
+            temp = search_result['id']['videoId']
+            templist += temp
+            templist = "".join([s for s in templist])
+        print (templist)
+        youtubeIds.append(templist)
     except Exception as e:
         print (f"An error occured: {e}")
-'''
 
-search_query = "mariah carrey"
+print (youtubeIds)
+print ("\n----------------------------------------\n")
 
-try:
-    print ("\n----------------------------------------\n")
-    search_response = youtube.search().list(
-        q = search_query,
-        type = 'video',
-        part = 'snippet',
-        maxResults = 3
-    ).execute()
-    print (search_response)
-    print ("\n----------------------------------------\n")
-except Exception as e:
-    print (f"An error occured: {e}")
 
 # Adding Videos to Playlist
-
