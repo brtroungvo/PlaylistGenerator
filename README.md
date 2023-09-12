@@ -1,2 +1,2 @@
 # PlaylistGenerator
-AI generated playlist that converts to mp3 files through YouTube
+Creates an AI Generated YouTube playlist based on user inputted genre
