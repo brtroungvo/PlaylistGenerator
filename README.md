@@ -1,2 +1,3 @@
 # PlaylistGenerator
-Finds songs based on user inputted genre, and converts to YouTube playlist.
+Creates an AI Generated YouTube playlist based on user inputted genre
+
