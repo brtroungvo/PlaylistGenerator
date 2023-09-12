@@ -15,6 +15,7 @@ youtube = googleapiclient.discovery.build('youtube', 'v3', developerKey=apikey)
 # Stores results for YouTubeSet Searches
 youtubeIds = []
 
+# Search for videos and store videoIds in youtubeIds
 youtubeList = songList
 for x in youtubeList:
     try:
@@ -29,13 +30,9 @@ for x in youtubeList:
             temp = search_result['id']['videoId']
             templist += temp
             templist = "".join([s for s in templist])
-        print (templist)
         youtubeIds.append(templist)
     except Exception as e:
         print (f"An error occured: {e}")
 
 print (youtubeIds)
 print ("\n----------------------------------------\n")
-
-
-# Adding Videos to Playlist
