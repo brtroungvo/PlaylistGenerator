@@ -7,7 +7,7 @@ from chatgpt import songList
 # Load YouTube apikey
 load_dotenv(override=True)
 
-# Creating YouTube Data api cleint
+# Creating YouTube Data api client
 apikey = os.getenv("YOUTUBE_API_KEY")
 youtube = googleapiclient.discovery.build('youtube', 'v3', developerKey=apikey)
 
@@ -16,23 +16,26 @@ youtube = googleapiclient.discovery.build('youtube', 'v3', developerKey=apikey)
 youtubeIds = []
 
 # Search for videos and store videoIds in youtubeIds
-youtubeList = songList
-for x in youtubeList:
-    try:
-        search_response = youtube.search().list(
-            q = x,
-            type = 'video',
-            part = 'id',
-            maxResults = 1
-        ).execute()
-        templist = []
-        for search_result in search_response.get('items'):
-            temp = search_result['id']['videoId']
-            templist += temp
-            templist = "".join([s for s in templist])
-        youtubeIds.append(templist)
-    except Exception as e:
-        print (f"An error occured: {e}")
+try:
+    youtubeList = songList
+    for x in youtubeList:
+        try:
+            searchResponse = youtube.search().list(
+                q = x,
+                type = 'video',
+                part = 'id',
+                maxResults = 1
+            ).execute()
+            templist = []
+            for searchResult in searchResponse.get('items'):
+                temp = searchResult['id']['videoId']
+                templist += temp
+                templist = "".join([s for s in templist])
+            youtubeIds.append(templist)
+        except Exception as e:
+            print (f"An error occured: {e}")
+except Exception as e:
+    print(f"An error occured: {e}")
 
-print (youtubeIds)
-print ("\n----------------------------------------\n")
+#print (youtubeIds)
+#print ("\n----------------------------------------\n")
