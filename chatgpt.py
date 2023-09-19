@@ -34,5 +34,3 @@ songList = result.split("\n")
 # Loop to get rid of numbers
 for x in range(len(songList)):
     songList[x] = songList[x].split('. ')[1]
-
-#print(songList)

@@ -36,6 +36,3 @@ try:
             print (f"An error occured: {e}")
 except Exception as e:
     print(f"An error occured: {e}")
-
-#print (youtubeIds)
-#print ("\n----------------------------------------\n")
