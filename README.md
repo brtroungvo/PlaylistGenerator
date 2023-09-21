@@ -3,7 +3,11 @@ Creates an AI Generated YouTube playlist based on user inputted genre. \
 This is a showcase only.
 
 ## Showcase
-https://github.com/brtroungvo/PlaylistGenerator/assets/66912783/dae09b82-092f-4d62-93c0-c9a0e3da7b18
+
+
+https://github.com/brtroungvo/PlaylistGenerator/assets/66912783/1d553ab5-d181-457b-a6b5-d101510a90ca
+
+
 
 #### Breakdown
 Program is run through YouTubePlaylist.py and creates a list of 10 songs based on the genre the user inputs. \
