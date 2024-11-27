@@ -18,5 +18,4 @@ After signing in, it will place the private playlist into the user's account.
 
 ## Issues/Notes
 In order to use this program, 3 API keys are needed. Those being for OpenAI, your Google Cloud project, and the OAuth 2.0 token associated with the Google Cloud project.\
-Additionally a json file containing the client information (various urls and ids) for OAuth 2.0 is required.\
-A problem with this is that I don't know how to allow others to use the program without sharing my API keys.
+Additionally a json file containing the client information (various urls and ids) for OAuth 2.0 is required.
